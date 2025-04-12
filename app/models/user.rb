@@ -7,5 +7,8 @@ class User < ActiveRecord::Base
          :recoverable, :rememberable, :validatable
   include DeviseTokenAuth::Concerns::User
 
-  
+  has_many :books, dependent: :destroy
+
+  validates :name, presence: true, length: { maximum: 50 }
+  validates :nickname, length:{maximum: 20}
 end

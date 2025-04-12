@@ -12,10 +12,10 @@
 
 ActiveRecord::Schema[8.0].define(version: 2025_04_12_033050) do
   create_table "books", force: :cascade do |t|
-    t.string "title"
-    t.string "body"
+    t.string "title", null: false
+    t.string "body", null: false
     t.integer "user_id", null: false
-    t.integer "view_count"
+    t.integer "view_count", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_books_on_user_id"

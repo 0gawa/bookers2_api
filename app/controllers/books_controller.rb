@@ -1,4 +1,7 @@
 class BooksController < ApplicationController
+  include ValificationUser
+  
+  before_action :ensure_correct_user, only: [:edit, :update, :destroy]
   before_action :set_book, only: %i[ show update destroy ]
 
   def index
@@ -47,4 +50,5 @@ class BooksController < ApplicationController
     def book_params
       params.expect(book: [ :title, :body, :user_id, :view_count ])
     end
+
 end
