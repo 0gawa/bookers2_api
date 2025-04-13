@@ -8,6 +8,7 @@ class User < ActiveRecord::Base
   include DeviseTokenAuth::Concerns::User
 
   has_many :books, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :nickname, length:{maximum: 20}
