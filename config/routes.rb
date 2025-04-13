@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resources :books do
     resource :favorites, only: [:create, :destroy]
+    resources :book_comments, only: [:create, :destroy]
   end
 
   # Reveal health status on /up that returns 200 if the app boots with no exceptions, otherwise 500.
