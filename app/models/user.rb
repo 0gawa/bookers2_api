@@ -9,6 +9,7 @@ class User < ActiveRecord::Base
 
   has_many :books, dependent: :destroy
   has_many :favorites, dependent: :destroy
+  has_many :book_comments, dependent: :destroy
 
   validates :name, presence: true, length: { maximum: 50 }
   validates :nickname, length:{maximum: 20}
